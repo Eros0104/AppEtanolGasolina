@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">AplicativoGasolinaEtanol</string>
-    <string name="preco_da_gasolina">Preço do litro da gasolina</string>
-    <string name="preco_do_etanol">Preço do litro do etanol</string>
-    <string name="melhor_opcao">É melhor usar %1$s, pois a razão é %2$s.</string>
-    <string name="gasolina">gasolina</string>
-    <string name="etanol">etanol</string>
+    <string name="app_name">Gasoline and Ethanol</string>
+    <string name="preco_da_gasolina">Liter price of gasoline</string>
+    <string name="preco_do_etanol">Liter price of ethanol</string>
+    <string name="melhor_opcao">It\'s better to use %1$s</string>
+    <string name="gasolina">gasoline</string>
+    <string name="etanol">ethanol</string>
 </resources>

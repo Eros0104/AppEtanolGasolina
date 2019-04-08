@@ -36,25 +36,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textViewGasValue = (TextView) findViewById(R.id.preco_da_gasolina_textview);
-        textViewEthanolValue = (TextView) findViewById(R.id.preco_do_etanol_textview);
+        seekBarGasValue = (SeekBar) findViewById(R.id.gasolina_seekbar);
+        seekBarEthanolValue = (SeekBar) findViewById(R.id.etanol_seekbar);
 
-        seekBarGasValue = (SeekBar) findViewById(R.id.preco_da_gasolina_seekbar);
-        seekBarEthanolValue = (SeekBar) findViewById(R.id.preco_do_etanol_seekbar);
+        textViewGasValue = (TextView) findViewById(R.id.gasolina_textview);
+        textViewEthanolValue = (TextView) findViewById(R.id.etanol_textview);
 
         melhorOpcaoTextView = (TextView) findViewById(R.id.melhor_opcao_textview);
         melhorOpcaoImageView = (ImageView) findViewById(R.id.melhor_opcao_imageview);
 
         precoGasolina = precoEtanol = 3;
-        calcular();
+        calculate();
         seekBarGasValue.setOnSeekBarChangeListener(observer);
         seekBarEthanolValue.setOnSeekBarChangeListener(observer);
 
     }
-    private void calcular (){
+    private void calculate (){
         razao = precoEtanol / precoGasolina;
         textViewGasValue.setText(currencyFormat.format(precoGasolina));
-        textViewGasValue.setText(currencyFormat.format(precoEtanol));
+        textViewEthanolValue.setText(currencyFormat.format(precoEtanol));
         if (razao >= 0.7){
             melhorOpcaoImageView.setImageResource(R.drawable.gasolina);
             melhorOpcaoTextView.setText(getString(R.string.melhor_opcao, getString(R.string.gasolina), percentFormat.format(razao)));
@@ -69,13 +69,13 @@ public class MainActivity extends AppCompatActivity {
             new SeekBar.OnSeekBarChangeListener() {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-                    if (seekBar.getId() == R.id.preco_da_gasolina_seekbar){
+                    if (seekBar.getId() == R.id.gasolina_seekbar){
                         precoGasolina = progress / 100.;
                     }
                     else{
                         precoEtanol = progress / 100.;
                     }
-                    calcular();
+                    calculate();
                 }
 
                 @Override
